@@ -8,6 +8,8 @@
   <p>
 
 ![Field Control ♥](https://img.shields.io/badge/Field%20Control-%20%20%20%20%20%20♥-blue.svg)
+[![Maintainability](https://api.codeclimate.com/v1/badges/75b28e4216162b3f7612/maintainability)](https://codeclimate.com/github/FieldControl/reserveasy/maintainability)
+![Continuous Integration](https://github.com/FieldControl/reserveasy/workflows/Continuous%20Integration/badge.svg?branch=master)
 
   </p>
   <small>
@@ -25,12 +27,13 @@ Because sometimes we forget ec2 or rds instances unreserved, and it cost us mone
 
 ## Usage
 
-1 - Clone reserveasy repository and install its dependencies:
+1 - Clone reserveasy repository and install and link its dependencies:
 
 ```sh
 git clone https://github.com/FieldControl/reserveasy.git
 cd reserveasy
 npm install
+npm link
 ```
 
 2 - Configure regions you would like to analyze at `config.json`:
@@ -52,7 +55,7 @@ reserveasy
 
 ```js
 {
-  "us-east-1": {
+  "us-east-1": { // <-- AWS region
     "ec2": {
       "instances": [ // <-- EC2 running instances for given region
         {
@@ -72,8 +75,8 @@ reserveasy
           "Platform": "linux"
         }
       ],
-      "missingReservations": [ // <-- EC2 missing reservation instances for given region, take action!
-        {
+      "missingReservations": [ // <-- EC2 missing reservation instances for given region
+        {                      // YOU SHOULD TAKE ACTION!
           "InstanceType": "t2.medium",
           "Platform": "linux",
           "instanceName": "instance-2"
@@ -85,8 +88,8 @@ reserveasy
           "Platform": "linux"
         }
       ],
-      "unallocatedReservations": [] // <-- EC2 unallocated reservation instances for given region, take action - useless reservation (・・;)ゞ
-    },
+      "unallocatedReservations": [] // <-- EC2 unallocated reservation instances for given region
+    },                              // YOU SHOULD TAKE ACTION - useless reservation (・・;)ゞ
     "rds": {
       "instances": [ // <-- RDS running instances for given region
         {
@@ -103,7 +106,8 @@ reserveasy
           "MultiAZ": false
         }
       ],
-      "missingReservations": [], // <-- RDS missing reservation instances for given region, take action!
+      "missingReservations": [], // <-- RDS missing reservation instances for given region
+                                 // YOU SHOULD TAKE ACTION! 
       "allocatedReservations": [ // <-- RDS allocated reservation instances for given region
         {
           "DBInstanceClass": "db.t3.micro",
@@ -111,8 +115,8 @@ reserveasy
           "MultiAZ": false
         }
       ],
-      "unallocatedReservations": [] // <-- RDS unallocated reservation instances for given region, take action - useless reservation (・・;)ゞ
-    }
+      "unallocatedReservations": [] // <-- RDS unallocated reservation instances for given region
+    }                               // YOU SHOULD TAKE ACTION - useless reservation (・・;)ゞ
   }
 }
 ```
