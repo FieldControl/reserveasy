@@ -1,0 +1,22 @@
+{
+  "name": "reserveasy",
+  "version": "0.0.1",
+  "description": "Never miss an ec2 or rds reservation again on Amazon Web Services and continue to save money :)",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FieldControl/reserveasy.git"
+  },
+  "author": "Luiz Freneda <lfreneda@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FieldControl/reserveasy/issues"
+  },
+  "homepage": "https://github.com/FieldControl/reserveasy#readme",
+  "dependencies": {
+    "aws-sdk": "^2.747.0"
+  }
+}
