@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/FieldControl/reserveasy#readme",
   "dependencies": {
-    "aws-sdk": "^2.747.0"
+    "aws-sdk": "^2.1693.0"
   },
   "devDependencies": {
     "eslint": "^7.8.1",
